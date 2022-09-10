@@ -4,13 +4,27 @@
   
   
   <entry>
-    <title>hello world</title>
+    <title>h</title>
     <link href="/2022/09/10/test/"/>
     <url>/2022/09/10/test/</url>
     
-    <content type="html"><![CDATA[<p>dfasdfas</p>]]></content>
+    <content type="html"><![CDATA[<p>sadfasdfasd</p><p><img src="/.com//2.png" alt="1"></p>]]></content>
     
     
+    <categories>
+      
+      <category>diary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>www</tag>
+      
+      <tag>aaa</tag>
+      
+    </tags>
     
   </entry>
   
