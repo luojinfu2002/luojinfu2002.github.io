@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Luo&#39;s Blog</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-09-11T04:00:10.661Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>luo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hlkklk</title>
+    <link href="http://example.com/2022/09/10/test/"/>
+    <id>http://example.com/2022/09/10/test/</id>
+    <published>2022-09-10T07:19:16.609Z</published>
+    <updated>2022-09-11T04:00:10.661Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/luojinfu2002/blogpicture@main/img/202209111159734.png" alt="2"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/luojinfu2002/blogpicture@main/img/202209111159734.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/09/09/%E6%B5%8B%E8%AF%95/"/>
+    <id>http://example.com/2022/09/09/%E6%B5%8B%E8%AF%95/</id>
+    <published>2022-09-09T07:06:25.716Z</published>
+    <updated>2022-09-10T06:00:07.189Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><p>i dont like youyeyeyey  </p><p>yeyey</p><p>i lile <strong>haha</strong></p><p><em>haha</em></p><blockquote><p>haha</p></blockquote><ol><li>fist</li><li>second</li><li>third</li><li>fourth</li></ol><ul><li><p>h</p></li><li><p>sa</p></li><li><p>a</p></li><li><p>d</p></li><li><ul><li>hh</li></ul></li></ul><p>* </p><ul><li><blockquote><p>hahah</p></blockquote></li><li></li></ul><p><code>nano</code></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;aadsf;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><p>try to put a </p><p><a href="https://markdown.com.cn/">link</a></p><p><strong><a href="mailto:&#49;&#x33;&#48;&#x34;&#x36;&#52;&#56;&#x39;&#x32;&#56;&#64;&#x71;&#113;&#46;&#x63;&#x6f;&#109;">&#49;&#x33;&#48;&#x34;&#x36;&#52;&#56;&#x39;&#x32;&#56;&#64;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a></strong></p><p><img src="/.com//Users\罗\Desktop\新建文件夹\壁纸\3.png" alt="tup"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2022/09/07/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/"/>
+    <id>http://example.com/2022/09/07/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/</id>
+    <published>2022-09-07T08:48:45.313Z</published>
+    <updated>2022-09-10T07:11:42.042Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="qqqq"><a href="#qqqq" class="headerlink" title="qqqq"></a>qqqq</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;qqqq&quot;&gt;&lt;a href=&quot;#qqqq&quot; class=&quot;headerlink&quot; title=&quot;qqqq&quot;&gt;&lt;/a&gt;qqqq&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    <category term="Diary" scheme="http://example.com/categories/Diary/"/>
+    
+    
+    <category term="PS3" scheme="http://example.com/tags/PS3/"/>
+    
+    <category term="Games" scheme="http://example.com/tags/Games/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2022/09/04/hello-world/"/>
+    <id>http://example.com/2022/09/04/hello-world/</id>
+    <published>2022-09-04T11:14:22.941Z</published>
+    <updated>2022-09-04T11:14:22.941Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

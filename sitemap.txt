@@ -1,0 +1,9 @@
+http://example.com/2022/09/10/test/
+http://example.com/2022/09/07/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/
+http://example.com/about/index.html
+http://example.com/2022/09/09/%E6%B5%8B%E8%AF%95/
+http://example.com/2022/09/04/hello-world/
+http://example.com/
+http://example.com/tags/PS3/
+http://example.com/tags/Games/
+http://example.com/categories/Diary/
