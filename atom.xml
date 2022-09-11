@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Luo&#39;s Blog</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-09-11T12:08:49.700Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>luo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2022/09/11/helloworld/"/>
+    <id>http://example.com/2022/09/11/helloworld/</id>
+    <published>2022-09-11T12:08:09.403Z</published>
+    <updated>2022-09-11T12:08:49.700Z</updated>
+    
+    <content type="html"><![CDATA[<p>hi~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;hi~&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
