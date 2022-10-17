@@ -1,4 +1,7 @@
-http://example.com/2022/10/17/%E6%97%A5%E8%AE%B0/
+http://example.com/2019/09/04/%E6%97%A5%E8%AE%B0/
 http://example.com/2022/09/11/helloworld/
 http://example.com/about/index.html
 http://example.com/
+http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+http://example.com/tags/Hexo/
+http://example.com/categories/Hexo/

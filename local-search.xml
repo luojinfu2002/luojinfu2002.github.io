@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/10/17/%E6%97%A5%E8%AE%B0/"/>
-    <url>/2022/10/17/%E6%97%A5%E8%AE%B0/</url>
+    <title>Hello World</title>
+    <link href="/2022/09/11/helloworld/"/>
+    <url>/2022/09/11/helloworld/</url>
     
-    <content type="html"><![CDATA[<hr><p>title：日记</p><p>date：2022-10-17</p><p>tags：日常</p><p>password：1111</p><p>message：日记</p><hr><h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1>]]></content>
+    <content type="html"><![CDATA[<p>hi~</p>]]></content>
     
     
     
@@ -17,13 +17,27 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2022/09/11/helloworld/"/>
-    <url>/2022/09/11/helloworld/</url>
+    <title>Hexo加密功能</title>
+    <link href="/2019/09/04/%E6%97%A5%E8%AE%B0/"/>
+    <url>/2019/09/04/%E6%97%A5%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[<p>hi~</p>]]></content>
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="eb0af42e961635f09f3417c854c84e62bcfa93e79bc9dc9a7c92b4b5005ee18a">f4cc23558ba95030556638b09840cfb7c4f2810e30f55d5b3421b66777acdd9520e1cf832ba49f853511c86ff8e8826a100019d626ec0e8f2ec10f65b6c71873904eaa532806d03a1ed13034634a4e2abba174ce5eb5adb04bd9aabefe8f9873</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">密码输入框上描述性内容</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
     
+    <categories>
+      
+      <category>Hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习笔记</tag>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
     
   </entry>
   
