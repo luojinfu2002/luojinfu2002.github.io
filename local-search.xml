@@ -4,26 +4,25 @@
   
   
   <entry>
-    <title>h</title>
-    <link href="/2022/10/17/%E6%B5%8B%E8%AF%952/"/>
-    <url>/2022/10/17/%E6%B5%8B%E8%AF%952/</url>
+    <title>日记</title>
+    <link href="/2022/10/01/%E6%97%A5%E8%AE%B0/"/>
+    <url>/2022/10/01/%E6%97%A5%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[<h1 id="sg"><a href="#sg" class="headerlink" title="sg"></a>sg</h1><p>askfk</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>luo</title>
-    <link href="/2022/10/17/%E6%B5%8B%E8%AF%95/"/>
-    <url>/2022/10/17/%E6%B5%8B%E8%AF%95/</url>
-    
-    <content type="html"><![CDATA[<h1 id="sdafh-sdf"><a href="#sdafh-sdf" class="headerlink" title="sdafh;sdf"></a>sdafh;sdf</h1>]]></content>
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="d68246ffa8effcabfd44ba5ae4633bcead2ab7fb22fc2162803e587c66281b33">98b9bce3395e8307c58744c1268884247d0a5b3479230fb31ca4bed820a86c27422cc91a4ea7f27c7326dd970a974961d932a75619370158c1ac5c95281050db413f7a6cf0dd06320e44b09e0d148775bab7f9ee61722aaf85a226c4934152a5739e168613ce305d7b6be75fc6ffd7882aa28d328b923257197d36d3ddb110e95232d87a8d903a300ec34e18b7f20825976c9a69617cf4bcac510c1202a0c2d44c8ee9b3d3f8f1d84ab6798fac58c8beb07f47837550804aa53e42a332e54cf5</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">仅用于个人记录</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
     
+    <categories>
+      
+      <category>日常记录</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日常记录</tag>
+      
+    </tags>
     
   </entry>
   
@@ -37,33 +36,6 @@
     <content type="html"><![CDATA[<p>hi~</p>]]></content>
     
     
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hexo加密功能</title>
-    <link href="/2019/09/04/%E6%97%A5%E8%AE%B0/"/>
-    <url>/2019/09/04/%E6%97%A5%E8%AE%B0/</url>
-    
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="eb0af42e961635f09f3417c854c84e62bcfa93e79bc9dc9a7c92b4b5005ee18a">f4cc23558ba95030556638b09840cfb7c4f2810e30f55d5b3421b66777acdd9520e1cf832ba49f853511c86ff8e8826a100019d626ec0e8f2ec10f65b6c71873904eaa532806d03a1ed13034634a4e2abba174ce5eb5adb04bd9aabefe8f9873</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">密码输入框上描述性内容</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <categories>
-      
-      <category>Hexo</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>学习笔记</tag>
-      
-      <tag>Hexo</tag>
-      
-    </tags>
     
   </entry>
   
