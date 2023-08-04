@@ -85,7 +85,7 @@
     <link href="/2023/03/27/windows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/"/>
     <url>/2023/03/27/windows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/</url>
     
-    <content type="html"><![CDATA[<h1 id="变量属性表示"><a href="#变量属性表示" class="headerlink" title="变量属性表示"></a>变量属性表示</h1><p>全局变量g_</p><p>常量c_</p><p>结构体字段、类成员变量m_(member)</p><p>静态变量s_</p><p><img src="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202304140935394.png" alt="属性变量表示"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="windows核心编程"><a href="#windows核心编程" class="headerlink" title="windows核心编程"></a>windows核心编程</h1><p>变量属性表示</p><p>全局变量g_</p><p>常量c_</p><p>结构体字段、类成员变量m_(member)</p><p>静态变量s_</p><p><img src="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202304140935394.png" alt="属性变量表示"></p>]]></content>
     
     
     
