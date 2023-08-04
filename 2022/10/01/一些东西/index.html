@@ -16,16 +16,16 @@
   <meta name="author" content="luo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1函数调用约定  是函数调用者和被调用的函数体之间关于参数传递、返回值传递、堆栈清除、寄存器使用的一种约定。   Cdecl  声明语法为： 12int function (int a ,int b) &#x2F;&#x2F;不加修饰就是C调用约定 int __cdecl function(int a,int b)&#x2F;&#x2F;明确指出C调用约定   cdecl–C Declaration的缩写，C语言缺省的调用约定 cd">
+    <meta name="description" content="指令执行周期 取指令，译码，执行 加载执行程序 11.磁盘寻找文件 2.访问文件信息 3.加载程序之内存 4.执行指令，分配Process ID 5.进程自动运行 6.进程结束后从内存中移除  32位x86处理器 123操作模式：保护模式，虚拟8086模式（保护模式子模式），实地址模式，系统管理模式xmm寄存器  64位x86处理器 123456789向后兼容x86指令集地址长度64位，虚拟地址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一些东西">
 <meta property="og:url" content="http://example.com/2022/10/01/%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/index.html">
 <meta property="og:site_name" content="Luo&#39;s Blog">
-<meta property="og:description" content="1函数调用约定  是函数调用者和被调用的函数体之间关于参数传递、返回值传递、堆栈清除、寄存器使用的一种约定。   Cdecl  声明语法为： 12int function (int a ,int b) &#x2F;&#x2F;不加修饰就是C调用约定 int __cdecl function(int a,int b)&#x2F;&#x2F;明确指出C调用约定   cdecl–C Declaration的缩写，C语言缺省的调用约定 cd">
+<meta property="og:description" content="指令执行周期 取指令，译码，执行 加载执行程序 11.磁盘寻找文件 2.访问文件信息 3.加载程序之内存 4.执行指令，分配Process ID 5.进程自动运行 6.进程结束后从内存中移除  32位x86处理器 123操作模式：保护模式，虚拟8086模式（保护模式子模式），实地址模式，系统管理模式xmm寄存器  64位x86处理器 123456789向后兼容x86指令集地址长度64位，虚拟地址">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202304131138318.png">
 <meta property="article:published_time" content="2022-09-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-27T15:01:23.342Z">
+<meta property="article:modified_time" content="2023-08-04T07:13:38.203Z">
 <meta property="article:author" content="luo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202304131138318.png">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.2k 字
+          9.7k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          36 分钟
+          82 分钟
         
       </span>
     
@@ -276,6 +276,268 @@
               <div class="markdown-body">
                 
                 <hr>
+<p>指令执行周期</p>
+<p>取指令，译码，执行</p>
+<p>加载执行程序</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>.磁盘寻找文件 <span class="hljs-number">2</span>.访问文件信息 <span class="hljs-number">3</span>.加载程序之内存 <span class="hljs-number">4</span>.执行指令，分配Process ID <span class="hljs-number">5</span>.进程自动运行 <span class="hljs-number">6</span>.进程结束后从内存中移除<br></code></pre></td></tr></table></figure>
+
+<p>32位x86处理器</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">操作模式：保护模式，虚拟8086模式（保护模式子模式），实地址模式，系统管理模式<br><br>xmm寄存器<br></code></pre></td></tr></table></figure>
+
+<p>64位x86处理器</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs llvm">向后兼容<span class="hljs-keyword">x</span><span class="hljs-number">86</span>指令集<br><br>地址长度<span class="hljs-number">64</span>位，虚拟地址控件位<span class="hljs-number">2</span>的<span class="hljs-number">64</span>次方字节<span class="hljs-number">2</span><br><br>可以使用<span class="hljs-number">64</span>位通用寄存器，运行指令具有<span class="hljs-number">64</span>位整数操作数<br><br>比<span class="hljs-keyword">x</span><span class="hljs-number">86</span>多了<span class="hljs-number">8</span>各通用寄存器<br><br>物理地址为<span class="hljs-number">48</span>位，支持<span class="hljs-number">256</span>TB的RAM<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">操作模式：兼容模式，64位模式    <br></code></pre></td></tr></table></figure>
+
+<p>I&#x2F;O访问层次</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lua">高级语言函数<br>操作系统（<span class="hljs-built_in">os</span>）<br>BIOS<br>硬件<br></code></pre></td></tr></table></figure>
+
+<p>汇编语言基本元素</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">整数常量 <span class="hljs-number">0A3h</span>（<span class="hljs-number">16</span>进制<span class="hljs-number">0</span> h） <span class="hljs-number">19d</span>（<span class="hljs-number">10</span>进制，可以不写）<span class="hljs-number">23q</span>/o（八进制） <span class="hljs-number">10011b</span>（二进制）<br>实数常量 <span class="hljs-number">2</span> <span class="hljs-number">3.0</span> +<span class="hljs-number">3.0</span> -<span class="hljs-number">44.2E+5</span> <span class="hljs-number">26.E5</span><br>字符常量 ‘A’ <span class="hljs-string">&quot;A&quot;</span><br>字符串常量   “HELLO”<br>保留字 <span class="hljs-keyword">mov</span> <span class="hljs-keyword">lea</span> <span class="hljs-keyword">add</span> <span class="hljs-keyword">sub</span> jcc 寄存器 属性 <span class="hljs-built_in">db</span> <span class="hljs-built_in">dword</span> 运算符<br>标识符 第一个字符是有限制的，标识符不能与保留字相同<br>伪指令 data offset<br>指令 <span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>，<span class="hljs-number">123</span><br>注释 ；<br></code></pre></td></tr></table></figure>
+
+<p>定义数据类型  </p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">整数：<br><span class="hljs-built_in">BYTE</span> <span class="hljs-number">8</span>位（无符号） SBYTE（有符号，汇编） <br><span class="hljs-built_in">WORD</span> <span class="hljs-number">16</span>位（无符号） SWORD（有符号）<br><span class="hljs-built_in">DWORD</span> <span class="hljs-number">32</span>位（无符号）SDWORD（有符号）<br>FWORD <span class="hljs-number">48</span>位（无符号）保护模式的远指针  SFWORD（有符号）<br><span class="hljs-built_in">QWORD</span> <span class="hljs-number">64</span>位 整数<br>TBYTE <span class="hljs-number">80</span>位 整数<br>实数：<br>REAL4 <span class="hljs-number">32</span>位 短实数<br>REAL8 <span class="hljs-number">64</span>位 长实数<br>REAL10 <span class="hljs-number">80</span>位 拓展实数<br>伪指令：<br><span class="hljs-built_in">db</span> <span class="hljs-number">8</span>位整数 char ASCII<br><span class="hljs-built_in">dw</span> <span class="hljs-number">16</span>位整数<br><span class="hljs-built_in">dd</span> <span class="hljs-number">32</span>为整数或者实数<br><span class="hljs-built_in">dq</span> <span class="hljs-number">64</span>位整数或者实数<br><span class="hljs-built_in">dt</span> <span class="hljs-number">80</span>位的整数<br>大端序与小端序：<br>大：<span class="hljs-number">12345678</span><br>小：<span class="hljs-number">78563412</span><br></code></pre></td></tr></table></figure>
+
+<p>数据传送指令：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>,<span class="hljs-number">1</span><br><span class="hljs-keyword">mov</span> reg32，imm32<br>操作数类型<br>立即数；寄存器操作数 <span class="hljs-built_in">eax</span> <span class="hljs-built_in">ebx</span>；内存操作数<br><br>reg 通用寄存器 <br>sreg 段寄存器<br>imm 立即数<br>mem 内存<br><br><span class="hljs-keyword">mov</span> 目的操作数，源操作数（两个位数相同，不能同时为内存操作数）<br><span class="hljs-keyword">mov</span> reg，reg<br><span class="hljs-keyword">mov</span> mem，reg<br><span class="hljs-keyword">mov</span> reg，mem<br><span class="hljs-keyword">mov</span> mem，imm<br><span class="hljs-keyword">mov</span> reg，imm<br><span class="hljs-keyword">mov</span> mem，mem 得写成 <span class="hljs-keyword">mov</span> reg，mem       <span class="hljs-keyword">mov</span> mem reg<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>,<span class="hljs-built_in">cx</span> 得写成 <span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>，FFFFFFFF <span class="hljs-keyword">mov</span> <span class="hljs-built_in">ax</span>，<span class="hljs-built_in">cx</span><br><span class="hljs-built_in">eax</span> = <span class="hljs-number">101010101010101010</span><br><span class="hljs-built_in">cx</span> = <span class="hljs-number">10101010</span><br><span class="hljs-number">00000000110101010</span><br><br><span class="hljs-keyword">movzx</span><br><span class="hljs-keyword">movzx</span> <span class="hljs-built_in">eax</span>，<span class="hljs-built_in">cx</span> 可以（全<span class="hljs-number">0</span>拓展）<br><span class="hljs-built_in">eax</span> = <span class="hljs-number">101010101010101010</span><br><span class="hljs-built_in">cx</span> = <span class="hljs-number">10101010</span><br><span class="hljs-number">0000000010101010</span><br><br><span class="hljs-keyword">movsx</span><br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>，<span class="hljs-built_in">cx</span><br><span class="hljs-built_in">eax</span> = <span class="hljs-number">101010101010101010</span><br><span class="hljs-built_in">cx</span> = <span class="hljs-number">10101010</span><br><span class="hljs-number">111111111110101010</span><br><br><span class="hljs-keyword">LAHF</span> //加载标志位到<span class="hljs-number">AH</span>（<span class="hljs-built_in">ax</span>的高八位）中<br><span class="hljs-keyword">lahf</span><br><span class="hljs-keyword">mov</span> flag（<span class="hljs-number">8</span>位整数），<span class="hljs-number">ah</span><br><br><span class="hljs-keyword">sahf</span>  //拷贝回标志位寄存器<br><span class="hljs-keyword">mov</span> <span class="hljs-number">ah</span>，flag<br><span class="hljs-keyword">sahf</span><br><br><span class="hljs-keyword">xchg</span> //交换指令<br><span class="hljs-keyword">xchg</span> reg，reg<br><span class="hljs-keyword">xchg</span> reg，mem<br><span class="hljs-keyword">xchg</span> mem，reg<br></code></pre></td></tr></table></figure>
+
+<p>加法与减法</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-keyword">add</span><br><span class="hljs-keyword">add</span> 操作数<span class="hljs-number">1</span> 操作数<span class="hljs-number">2</span> （操作数类型和<span class="hljs-keyword">mov</span>相同）<br><br><span class="hljs-keyword">sub</span><br><span class="hljs-keyword">sub</span> 操作数<span class="hljs-number">1</span> 操作数<span class="hljs-number">2</span>（操作数类型和<span class="hljs-keyword">mov</span>相同）<br><br><span class="hljs-keyword">inc</span>（自增） <span class="hljs-keyword">dec</span>（自减）<br><br><span class="hljs-keyword">neg</span> 取反符号位也取<br></code></pre></td></tr></table></figure>
+
+<p>数据相关的运算符和伪指令</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-meta">.data</span><br>szStr <span class="hljs-built_in">db</span> “hello <span class="hljs-built_in">word</span>”,<span class="hljs-number">0</span><br>num <span class="hljs-built_in">dword</span> <span class="hljs-number">5</span><br>arrNum <span class="hljs-built_in">dword</span> <span class="hljs-number">0</span>，<span class="hljs-number">1</span>，<span class="hljs-number">2</span>，<span class="hljs-number">3</span>，<span class="hljs-number">4</span>，<span class="hljs-number">5</span><br>var1 <span class="hljs-built_in">db</span> ？<br><br>offset 获取距离段起始位置的偏移<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span> offset var1<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span> offset arrNum + <span class="hljs-number">4</span><br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>，【<span class="hljs-built_in">eax</span>】 //【】是取地址里面的内容，间接寻址<br><br><span class="hljs-built_in">ptr</span> 用来指定操作数的类型或尺寸<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">ax</span>，<span class="hljs-built_in">word</span> <span class="hljs-built_in">ptr</span> num //取低十六位<br><br>type 返回当前元素大小<br><br>lengthof 返回数组中元素个数<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>，offset lengthof arrNum<br><br>sizeof 返回数组占的空间<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>，sizeof arrNum<br></code></pre></td></tr></table></figure>
+
+<p>间接寻址</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">pbyte typedef <span class="hljs-built_in">ptr</span> <span class="hljs-built_in">byte</span> //typedef<br><span class="hljs-meta">.data</span><br>asd pbyte　<span class="hljs-number">1</span><br>var <span class="hljs-built_in">byte</span> <span class="hljs-number">0</span>，<span class="hljs-number">1</span>，<span class="hljs-number">2</span>，<span class="hljs-number">3</span>，<span class="hljs-number">4</span>，<span class="hljs-number">5</span>，<span class="hljs-number">6</span>，<span class="hljs-number">7</span>，<span class="hljs-number">8</span><br><br><span class="hljs-keyword">xor</span> <span class="hljs-built_in">eax</span>, <span class="hljs-built_in">eax</span> //清零<br><span class="hljs-keyword">xor</span> <span class="hljs-built_in">ebx</span>, <span class="hljs-built_in">ebx</span><br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>, offset var<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">bl</span>, [<span class="hljs-built_in">eax</span>]<br><span class="hljs-keyword">inc</span> <span class="hljs-built_in">eax</span> //<span class="hljs-built_in">byte</span> 是一个字节，加<span class="hljs-number">1</span>到数组下一个元素<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">bl</span>, [<span class="hljs-built_in">eax</span>]<br><span class="hljs-keyword">inc</span> <span class="hljs-built_in">eax</span><br>... //完成遍历<br><br><span class="hljs-keyword">xor</span> <span class="hljs-built_in">eax</span>, <span class="hljs-built_in">eax</span> //清零<br><span class="hljs-keyword">xor</span> <span class="hljs-built_in">ebx</span>, <span class="hljs-built_in">ebx</span><br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>, offset var<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">bl</span>, [<span class="hljs-built_in">eax</span>]<br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">bl</span>, [<span class="hljs-built_in">eax</span> + <span class="hljs-number">1</span>] //<span class="hljs-built_in">word</span> +<span class="hljs-number">2</span>, <span class="hljs-built_in">dword</span> + <span class="hljs-number">4</span><br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">bl</span>, [<span class="hljs-built_in">eax</span> + <span class="hljs-number">2</span>]<br>...<br><br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">esi</span>, <span class="hljs-number">4</span><br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>,var[<span class="hljs-built_in">esi</span> * <span class="hljs-number">1</span>] //<span class="hljs-number">1</span>是数据宽度，结果取得是<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
+
+<p>JMP和LOOP</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">jmp</span> //无条件跳转<br><br><span class="hljs-built_in">ecx</span>是<span class="hljs-keyword">loop</span>的计数器<br><span class="hljs-keyword">xor</span> <span class="hljs-built_in">eax</span>，<span class="hljs-built_in">eax</span><br><span class="hljs-keyword">mov</span> <span class="hljs-built_in">ecx</span>，<span class="hljs-number">10</span><br>lp：<br>	<span class="hljs-keyword">inc</span> <span class="hljs-built_in">eax</span><br>	<span class="hljs-keyword">loop</span> lp<br><span class="hljs-meta">	</span><br><span class="hljs-meta">.data</span><br>source <span class="hljs-built_in">byte</span> <span class="hljs-string">&quot;hello world&quot;</span>,<span class="hljs-number">0</span><br>target <span class="hljs-built_in">byte</span> sizeof source dup(<span class="hljs-number">0</span>)<br><br>main proc //执行拷贝<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">esi</span>,<span class="hljs-number">0</span><br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">ecx</span>,sizeof source<br><span class="hljs-symbol">lp:</span>	<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">al</span>,source[<span class="hljs-built_in">esi</span> * <span class="hljs-number">1</span>]<br>	<span class="hljs-keyword">mov</span> target[<span class="hljs-built_in">esi</span> * <span class="hljs-number">1</span>],<span class="hljs-built_in">al</span><br>	<span class="hljs-keyword">inc</span> <span class="hljs-built_in">esi</span><br>	<span class="hljs-keyword">loop</span> lp<br>	<span class="hljs-keyword">push</span> <span class="hljs-number">0</span><br>	<span class="hljs-keyword">call</span> ExitProcess<br>	<span class="hljs-keyword">add</span> <span class="hljs-built_in">esp</span>，<span class="hljs-number">4</span> //堆栈平衡<br><br></code></pre></td></tr></table></figure>
+
+<p>堆栈操作</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">栈：先进后出<br><br><span class="hljs-keyword">push</span> <span class="hljs-built_in">esp</span> - <span class="hljs-number">4</span><br><span class="hljs-keyword">pop</span> <span class="hljs-built_in">esp</span>　+ <span class="hljs-number">4</span><br><br><span class="hljs-keyword">pushfd</span> <span class="hljs-keyword">popfd</span> 把<span class="hljs-number">32</span>位标志位寄存器压入栈中<br><br><span class="hljs-keyword">pushad</span> <span class="hljs-keyword">popad</span> 通用寄存器压栈<br>按<span class="hljs-built_in">eax</span> <span class="hljs-built_in">ecx</span> <span class="hljs-built_in">edx</span> <span class="hljs-built_in">esp</span> <span class="hljs-built_in">ebp</span> <span class="hljs-built_in">esi</span> <span class="hljs-built_in">edi</span>顺序压栈<br><br><span class="hljs-keyword">pusha</span> <span class="hljs-keyword">popa</span> <span class="hljs-number">16</span>位<br><br>字符串逆序<br><span class="hljs-meta">.data</span> <br>source <span class="hljs-built_in">byte</span> <span class="hljs-string">&quot;hello world&quot;</span>,<span class="hljs-number">0</span><br>sourcesize = ($ - source) - <span class="hljs-number">1</span><br><span class="hljs-meta">.code</span><br>main proc<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">ecx</span>,sourcesize<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">esi</span>,<span class="hljs-number">0</span><br><span class="hljs-symbol">lp1:</span><br>	<span class="hljs-keyword">movzx</span> <span class="hljs-built_in">eax</span>,source[<span class="hljs-built_in">esi</span> * <span class="hljs-number">1</span>] //数据传送指令<span class="hljs-keyword">MOV</span>的变体。无符号扩展，并传送。<br>	<span class="hljs-keyword">push</span> <span class="hljs-built_in">eax</span><br>	<span class="hljs-keyword">inc</span> <span class="hljs-built_in">esi</span><br>	<span class="hljs-keyword">loop</span> lp1<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">ecx</span>,sourcesize<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">esi</span>,<span class="hljs-number">0</span><br><span class="hljs-symbol">lp2:</span><br>	<span class="hljs-keyword">pop</span> <span class="hljs-built_in">eax</span><br>	<span class="hljs-keyword">mov</span> source[<span class="hljs-built_in">esi</span>],<span class="hljs-built_in">al</span><br>	<span class="hljs-keyword">inc</span> <span class="hljs-built_in">esi</span><br>	<span class="hljs-keyword">loop</span> lp2<br>	<span class="hljs-keyword">push</span> <span class="hljs-number">0</span><br>	<span class="hljs-keyword">call</span> ExitProcess<br>	<span class="hljs-keyword">add</span> <span class="hljs-built_in">esp</span>,<span class="hljs-number">4</span><br>main ENDP<br>END main<br></code></pre></td></tr></table></figure>
+
+<p>定义函数</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">call</span> <br><span class="hljs-number">1.</span><span class="hljs-built_in">eip</span>压栈   <span class="hljs-number">2.</span><span class="hljs-keyword">jmp</span>到函数处<br><br><span class="hljs-keyword">ret</span><br><span class="hljs-number">1.</span><span class="hljs-keyword">pop</span> <span class="hljs-built_in">eip</span> <span class="hljs-number">2.</span>jum <span class="hljs-built_in">eip</span><br><br>addx proc uses <span class="hljs-built_in">esi</span> <span class="hljs-built_in">ecx</span><br>	<span class="hljs-keyword">add</span> <span class="hljs-built_in">esi</span>,<span class="hljs-built_in">ecx</span><br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>,<span class="hljs-built_in">esi</span><br>	<span class="hljs-keyword">ret</span><br>addx ENDP<br><br>mian proc<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">esi</span>,<span class="hljs-number">5</span><br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">ecx</span>,<span class="hljs-number">6</span><br>	<span class="hljs-keyword">push</span> <span class="hljs-built_in">esi</span><br>	<span class="hljs-keyword">push</span> <span class="hljs-built_in">ecx</span><br>	<span class="hljs-keyword">call</span> addx<br>main endp<br>end main<br></code></pre></td></tr></table></figure>
+
+<p>布尔与比较指令</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">test  </span>//测试某位是不是1 运算逻辑就是and 不修改eax的值，改标志位寄存器<br>eflags <br><span class="hljs-keyword">test </span>eax 00000001<br><br>cmp //原理是相减 不修改操作数，修改标志位<br>cmp o1，o2<br>o1 &gt; o2 // zf = 0， cf = 1	//无符号数 sf != of<br>o1 &lt; o2 //zf = 0， cf = 0	//sf = of<br>o1 = 02 //zf = 1 ，cf = 0	//zf = 1<br>zf 零标志位； cf 进位标志位； sf 符号标志位； of 溢出标志位<br><br></code></pre></td></tr></table></figure>
+
+<p>条件跳转指令</p>
+<table>
+<thead>
+<tr>
+<th align="center">JCC指令</th>
+<th align="center">解释</th>
+<th align="center">英文原文</th>
+<th align="center">检查符号位</th>
+<th align="center">应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">JZ</td>
+<td align="center">如果为0则跳转</td>
+<td align="center">jump if zero</td>
+<td align="center">ZF &#x3D; 1</td>
+<td align="center">if（i &#x3D;&#x3D; 0）</td>
+</tr>
+<tr>
+<td align="center">JE</td>
+<td align="center">如果相等则跳转</td>
+<td align="center">jump if equal</td>
+<td align="center">ZF &#x3D; 1</td>
+<td align="center">if（i &#x3D;&#x3D; j）</td>
+</tr>
+<tr>
+<td align="center">JNZ</td>
+<td align="center">若为0则不跳转</td>
+<td align="center">jump if not zero</td>
+<td align="center">ZF &#x3D; 0</td>
+<td align="center">if（i !&#x3D; 0）</td>
+</tr>
+<tr>
+<td align="center">JNE</td>
+<td align="center">若不相等则跳转</td>
+<td align="center">jump if not equal</td>
+<td align="center">ZF &#x3D; 0</td>
+<td align="center">if（i !&#x3D; j)</td>
+</tr>
+<tr>
+<td align="center">JS</td>
+<td align="center">若为负数则跳转</td>
+<td align="center">jump if sign</td>
+<td align="center">SF &#x3D; 1</td>
+<td align="center">if（i &lt; 0)</td>
+</tr>
+<tr>
+<td align="center">JNS</td>
+<td align="center">若不为负数则跳转</td>
+<td align="center">jump if not sign</td>
+<td align="center">SF &#x3D; 0</td>
+<td align="center">if (i &gt; 0)</td>
+</tr>
+<tr>
+<td align="center">JP&#x2F;JPE</td>
+<td align="center">若1出现的次数为偶数跳转</td>
+<td align="center">jump if parity（even）</td>
+<td align="center">PF &#x3D; 1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JNP&#x2F;JPO</td>
+<td align="center">若1出现的次数为奇数跳转</td>
+<td align="center">jump if not party（odd）</td>
+<td align="center">PF &#x3D; 0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JO</td>
+<td align="center">若溢出则为0</td>
+<td align="center">jump if overflow</td>
+<td align="center">OF &#x3D; 1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JNO</td>
+<td align="center">若无溢出则跳转</td>
+<td align="center">jump if not overflow</td>
+<td align="center">OF &#x3D; 0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JC</td>
+<td align="center">若进位则跳转</td>
+<td align="center">jump if carry</td>
+<td align="center">CF &#x3D;1</td>
+<td align="center">if（i &lt; j)</td>
+</tr>
+<tr>
+<td align="center">JB</td>
+<td align="center">若低于则跳转</td>
+<td align="center">jump if below</td>
+<td align="center">CF &#x3D; 1</td>
+<td align="center">if（i &lt; j)</td>
+</tr>
+<tr>
+<td align="center">JNAE</td>
+<td align="center">若不高于等于则跳转</td>
+<td align="center">jump if not above equal</td>
+<td align="center">CF &#x3D; 1</td>
+<td align="center">if (i &lt; j)</td>
+</tr>
+<tr>
+<td align="center">JNC</td>
+<td align="center">若无进位则跳转</td>
+<td align="center">jump if not carry</td>
+<td align="center">CF &#x3D; 0</td>
+<td align="center">if（i  &gt; &#x3D;j )</td>
+</tr>
+<tr>
+<td align="center">JNB</td>
+<td align="center">若不小于则跳转</td>
+<td align="center">jump if not below</td>
+<td align="center">CF &#x3D; 0</td>
+<td align="center">if（i &gt;&#x3D; j)</td>
+</tr>
+<tr>
+<td align="center">JAE</td>
+<td align="center">若高于等于则跳转</td>
+<td align="center">jump if above equal</td>
+<td align="center">CF &#x3D; 0</td>
+<td align="center">if（i &gt;&#x3D; j )</td>
+</tr>
+<tr>
+<td align="center">JBE</td>
+<td align="center">若小于等于则跳转</td>
+<td align="center">jump if above equal</td>
+<td align="center">CF &#x3D; 1或 ZF &#x3D; 1</td>
+<td align="center">if（i &lt;&#x3D; j)</td>
+</tr>
+<tr>
+<td align="center">JNA</td>
+<td align="center">若不超过则跳转</td>
+<td align="center">jump if not above</td>
+<td align="center">CF &#x3D; 1或ZF &#x3D;1</td>
+<td align="center">if(i &lt;&#x3D;j)</td>
+</tr>
+<tr>
+<td align="center">JNBE</td>
+<td align="center">若不小于相等则跳转</td>
+<td align="center">jump if not below equal</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JA</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JL</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JNGE</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JNL</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JGE</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JLE</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JNG</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JNL</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JG</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>JCC指令	中文含义	英文原意	检查符号位	典型C应用<br>JZ&#x2F;JE	若为0则跳转；若相等则跳转	jump if zero;jump if equal	ZF&#x3D;1	if (i &#x3D;&#x3D; j);if (i &#x3D;&#x3D; 0);<br>JNZ&#x2F;JNE	若不为0则跳转；若不相等则跳转	jump if not zero;jump if not equal	ZF&#x3D;0	if (i !&#x3D; j);if (i !&#x3D; 0);<br>JS	若为负则跳转	jump if sign	SF&#x3D;1	if (i &lt; 0);<br>JNS	若为正则跳转	jump if not sign	SF&#x3D;0	if (i &gt; 0);<br>JP&#x2F;JPE	若1出现次数为偶数则跳转	jump if Parity (Even)	PF&#x3D;1	(null)<br>JNP&#x2F;JPO	若1出现次数为奇数则跳转	jump if not parity (odd)	PF&#x3D;0	(null)<br>JO	若溢出则跳转	jump if overflow	OF&#x3D;1	(null)<br>JNO	若无溢出则跳转	jump if not overflow	OF&#x3D;0	(null)<br>JC&#x2F;JB&#x2F;JNAE	若进位则跳转；若低于则跳转；若不高于等于则跳转	jump if carry;jump if below;jump if not above equal	CF&#x3D;1	if (i &lt; j);<br>JNC&#x2F;JNB&#x2F;JAE	若无进位则跳转；若不低于则跳转；若高于等于则跳转；	jump if not carry;jump if not below;jump if above equal	CF&#x3D;0	if (i &gt;&#x3D; j);<br>JBE&#x2F;JNA	若低于等于则跳转；若不高于则跳转	jump if below equal;jump if not above	ZF&#x3D;1或CF&#x3D;1	if (i &lt;&#x3D; j);<br>JNBE&#x2F;JA	若不低于等于则跳转；若高于则跳转	jump if not below equal;jump if above	ZF&#x3D;0或CF&#x3D;0	if (i &gt; j);<br>JL&#x2F;JNGE	若小于则跳转；若不大于等于则跳转	jump if less;jump if not greater equal	SF !&#x3D; OF	if (si &lt; sj);<br>JNL&#x2F;JGE	若不小于则跳转；若大于等于则跳转；	jump if not less;jump if greater equal	SF &#x3D; OF	if (si &gt;&#x3D; sj);<br>JLE&#x2F;JNG	若小于等于则跳转；若不大于则跳转	jump if less equal;jump if not greater	ZF !&#x3D; OF 或 ZF&#x3D;1	if (si &lt;&#x3D; sj);<br>JNLE&#x2F;JG	若不小于等于则跳转；若大于则跳转	jump if not less equal;jump if greater	SF&#x3D;0F 且 ZF&#x3D;0	if(si&gt;sj)</p>
 <hr>
 <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>函数调用约定</p>
 <blockquote>
