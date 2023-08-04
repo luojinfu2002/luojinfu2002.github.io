@@ -16,19 +16,21 @@
   <meta name="author" content="luo">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Luo&#39;s Blog">
-<meta property="og:url" content="http://example.com/2023/07/25/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/index.html">
+    <meta name="description" content="编码格式ANSI 和 UNICODE ANSI：最早的时候计算机ASCII码 只能表示256个符号（含控制符号），这个字符集表示英文字母足够，其中，我们键盘上可见的符号的编码范围是从32到126（大小写英文字母、数字、英文符号等）。但表示汉字、日语、韩语就不太够用了，汉字常用字有3000多个。 所以如果用一些很老的软件，可能会听说有中文版&#x2F;日文版之类的，对应的版本只能在对应的系统上运行。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编码格式">
+<meta property="og:url" content="http://example.com/2023/03/30/%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Luo&#39;s Blog">
+<meta property="og:description" content="编码格式ANSI 和 UNICODE ANSI：最早的时候计算机ASCII码 只能表示256个符号（含控制符号），这个字符集表示英文字母足够，其中，我们键盘上可见的符号的编码范围是从32到126（大小写英文字母、数字、英文符号等）。但表示汉字、日语、韩语就不太够用了，汉字常用字有3000多个。 所以如果用一些很老的软件，可能会听说有中文版&#x2F;日文版之类的，对应的版本只能在对应的系统上运行。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-25T05:52:34.696Z">
-<meta property="article:modified_time" content="2023-07-25T15:33:46.770Z">
+<meta property="article:published_time" content="2023-03-30T11:38:07.816Z">
+<meta property="article:modified_time" content="2023-08-04T07:23:36.016Z">
 <meta property="article:author" content="luo">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Luo&#39;s Blog</title>
+  <title>编码格式 - Luo&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle"></span>
+            <span id="subtitle">编码格式</span>
           
         </div>
 
@@ -205,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-25 13:52" pubdate>
-          2023年7月25日 下午
+        <time datetime="2023-03-30 19:38" pubdate>
+          2023年3月30日 晚上
         </time>
       </span>
     
@@ -217,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          666 字
         
       </span>
     
@@ -228,7 +230,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -266,12 +268,21 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">编码格式</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h1 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h1><p>ANSI 和 UNICODE</p>
+<p>ANSI：最早的时候计算机ASCII码</p>
+<p>只能表示256个符号（含控制符号），这个字符集表示英文字母足够，其中，我们键盘上可见的符号的编码范围是从32到126（大小写英文字母、数字、英文符号等）。但表示汉字、日语、韩语就不太够用了，汉字常用字有3000多个。</p>
+<p>所以如果用一些很老的软件，可能会听说有中文版&#x2F;日文版之类的，对应的版本只能在对应的系统上运行。</p>
+<p>后来，这个对操作系统的开发实在是太困难了，因为这意味着不同语言的版本，都要重新编码。于是发明了Unicode。</p>
+<p>Unicode这个东西，就是要把地球上所有的语言的符号，都用统一的字符集来表示，一个编码真正做到了唯一。</p>
+<p>Unicode里有几种方式：</p>
+<p>UTF-16BE&#x2F;LE：UTF-16就是Windows模式的编码模式(Windows里说的Unicode一般都是指这种编码），用2个字节表示任意字符，注意：英文字符也占2个字节，这种编码可以表示65536个字符，至于LE和BE，就是一个数值在内存&#x2F;磁盘上的保存方式，比如一个编码0x8182，在磁盘上应该是0x81 0x82呢？还是0x82 0x81呢？就是高位是最先保存还是最后保存的问题，前者为BE，后者为LE。</p>
+<p>UTF-8：UTF-8则是网页比较流行的一种格式：用一个字节表示英文字符，用3个字节表示汉字，准确的说，UTF-8是用二进制编码的前缀，如果某个UTF-8的编码的第一个字节的最高二进制位是0，则这个编码占1字节，如果是110，则占2字节，如果是1110，则占3字节……</p>
+
                 
               </div>
             
@@ -288,8 +299,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://example.com/2023/07/25/软件使用/</div>
+      <div>编码格式</div>
+      <div>http://example.com/2023/03/30/编码格式/</div>
     </div>
     <div class="license-meta">
       
@@ -301,7 +312,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月25日</div>
+          <div>2023年3月30日</div>
         </div>
       
       
@@ -343,7 +354,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/26/WINDOWS%E9%80%86%E5%90%91%E5%85%A5%E9%97%A8/" title="">
+                      <a href="/2023/07/25/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -353,8 +364,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/30/%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F/" title="编码格式">
-                        <span class="hidden-mobile">编码格式</span>
+                      <a href="/2023/03/29/%E5%AF%84%E5%AD%98%E5%99%A8%E7%A7%8D%E7%B1%BB%E5%8F%8A%E4%BD%9C%E7%94%A8/" title="寄存器种类及作用">
+                        <span class="hidden-mobile">寄存器种类及作用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

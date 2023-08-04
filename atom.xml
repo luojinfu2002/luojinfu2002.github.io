@@ -76,6 +76,28 @@
   </entry>
   
   <entry>
+    <title>编码格式</title>
+    <link href="http://example.com/2023/03/30/%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://example.com/2023/03/30/%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F/</id>
+    <published>2023-03-30T11:38:07.816Z</published>
+    <updated>2023-08-04T07:23:36.016Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h1><p>ANSI 和 UNICODE</p><p>ANSI：最早的时候计算机ASCII码</p><p>只能表示256个符号（含控制符号），这个字符集表示英文字母足够，其中，我们键盘上可见的符号的编码范围是从32到126（大小写英文字母、数字、英文符号等）。但表示汉字、日语、韩语就不太够用了，汉字常用字有3000多个。</p><p>所以如果用一些很老的软件，可能会听说有中文版&#x2F;日文版之类的，对应的版本只能在对应的系统上运行。</p><p>后来，这个对操作系统的开发实在是太困难了，因为这意味着不同语言的版本，都要重新编码。于是发明了Unicode。</p><p>Unicode这个东西，就是要把地球上所有的语言的符号，都用统一的字符集来表示，一个编码真正做到了唯一。</p><p>Unicode里有几种方式：</p><p>UTF-16BE&#x2F;LE：UTF-16就是Windows模式的编码模式(Windows里说的Unicode一般都是指这种编码），用2个字节表示任意字符，注意：英文字符也占2个字节，这种编码可以表示65536个字符，至于LE和BE，就是一个数值在内存&#x2F;磁盘上的保存方式，比如一个编码0x8182，在磁盘上应该是0x81 0x82呢？还是0x82 0x81呢？就是高位是最先保存还是最后保存的问题，前者为BE，后者为LE。</p><p>UTF-8：UTF-8则是网页比较流行的一种格式：用一个字节表示英文字符，用3个字节表示汉字，准确的说，UTF-8是用二进制编码的前缀，如果某个UTF-8的编码的第一个字节的最高二进制位是0，则这个编码占1字节，如果是110，则占2字节，如果是1110，则占3字节……</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;编码格式&quot;&gt;&lt;a href=&quot;#编码格式&quot; class=&quot;headerlink&quot; title=&quot;编码格式&quot;&gt;&lt;/a&gt;编码格式&lt;/h1&gt;&lt;p&gt;ANSI 和 UNICODE&lt;/p&gt;
+&lt;p&gt;ANSI：最早的时候计算机ASCII码&lt;/p&gt;
+&lt;p&gt;只能表示256个符号（含控</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>寄存器种类及作用</title>
     <link href="http://example.com/2023/03/29/%E5%AF%84%E5%AD%98%E5%99%A8%E7%A7%8D%E7%B1%BB%E5%8F%8A%E4%BD%9C%E7%94%A8/"/>
     <id>http://example.com/2023/03/29/%E5%AF%84%E5%AD%98%E5%99%A8%E7%A7%8D%E7%B1%BB%E5%8F%8A%E4%BD%9C%E7%94%A8/</id>
