@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/2.png">
+  <link rel="icon" href="/img/2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="luo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="PE结构 PE结构  123456789101112什么是PEMS-DOS头PE头区段导入表导出表资源表重定位TLS延迟载入手写最小PEPE编辑器开发  参考：PE文件结构详解 –（完整版）_pe文件节的个数_擒贼先擒王的博客-CSDN博客 1.什么是PE PE文件的全称是Portable Executable，意为可移植的可执行的文件，常见的EXE、DLL、OCX、SYS、COM都是PE文件，P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PE结构">
+<meta property="og:url" content="http://example.com/2023/07/27/PE%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="Luo&#39;s Blog">
+<meta property="og:description" content="PE结构 PE结构  123456789101112什么是PEMS-DOS头PE头区段导入表导出表资源表重定位TLS延迟载入手写最小PEPE编辑器开发  参考：PE文件结构详解 –（完整版）_pe文件节的个数_擒贼先擒王的博客-CSDN博客 1.什么是PE PE文件的全称是Portable Executable，意为可移植的可执行的文件，常见的EXE、DLL、OCX、SYS、COM都是PE文件，P">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202307261646490.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191105010119908.jpg">
+<meta property="og:image" content="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202307261940670.png">
+<meta property="article:published_time" content="2023-07-27T12:05:52.845Z">
+<meta property="article:modified_time" content="2023-08-04T07:18:57.310Z">
+<meta property="article:author" content="luo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202307261646490.png">
+  
+  
+  
+  <title>PE结构 - Luo&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Luo's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Luo&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">PE结构</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-27 20:05" pubdate>
+          2023年7月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          36 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">PE结构</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="PE结构"><a href="#PE结构" class="headerlink" title="PE结构"></a>PE结构</h1><ul>
+<li>PE结构</li>
+</ul>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs gauss">什么是PE<br>MS-<span class="hljs-keyword">DOS</span>头<br>PE头<br>区段<br>导入表<br>导出表<br>资源表<br>重定位<br>TLS<br>延迟载入<br>手写最小PE<br>PE编辑器开发<br></code></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/freeking101/article/details/102752048">PE文件结构详解 –（完整版）_pe文件节的个数_擒贼先擒王的博客-CSDN博客</a></p>
+<p><strong>1.什么是PE</strong></p>
+<p>PE文件的全称是Portable Executable，意为可移植的可执行的文件，常见的EXE、DLL、OCX、SYS、COM都是PE文件，PE文件是微软Windows操作系统上的程序文件(可能是间接被执行，如DLL)</p>
+<p><img src="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202307261646490.png" srcset="/img/loading.gif" lazyload alt="PE文件结构"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191105010119908.jpg" srcset="/img/loading.gif" lazyload alt="PE文件格式示意图"></p>
+<p><strong>2.MS-DOS头结构</strong></p>
+<p><img src="https://blogimages-1307841632.cos.ap-guangzhou.myqcloud.com/img/202307261940670.png" srcset="/img/loading.gif" lazyload alt="image-20230726194030577"></p>
+<p>各个字段的意义：</p>
+<p>第一个字段（mz标致位）：e_magic是一个常量，一般都是0x3D5A</p>
+<p>最后一个字段（PE头偏移）：e_lfanew指向新的PE头，偏移量为0x0138</p>
+<p>2.PE标准头结构</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs elm">//位于<span class="hljs-number">0x138</span><br>typedef struct _IMAGE_NT_HEADERS64 &#123;<br>    <span class="hljs-type">DWORD</span> <span class="hljs-type">Signature</span>;<br>    <span class="hljs-type">IMAGE_FILE_HEADER</span> <span class="hljs-type">FileHeader</span>;<br>    <span class="hljs-type">IMAGE_OPTIONAL_HEADER64</span> <span class="hljs-type">OptionalHeader</span>;<br>&#125; <span class="hljs-type">IMAGE_NT_HEADERS64</span>, *<span class="hljs-type">PIMAGE_NT_HEADERS64</span>;<br><br>typedef struct _IMAGE_NT_HEADERS &#123;<br>    <span class="hljs-type">DWORD</span> <span class="hljs-type">Signature</span>;<br>    <span class="hljs-type">IMAGE_FILE_HEADER</span> <span class="hljs-type">FileHeader</span>;<br>    <span class="hljs-type">IMAGE_OPTIONAL_HEADER32</span> <span class="hljs-type">OptionalHeader</span>;<br>&#125; <span class="hljs-type">IMAGE_NT_HEADERS32</span>, *<span class="hljs-type">PIMAGE_NT_HEADERS32</span>;<br></code></pre></td></tr></table></figure>
+
+<p>分为32位版本和64位版本<br>各个字段及其含义：<br>Signature：PE文件标识，0x4550 0000 DWORD类型，占四字节<br>FileHeader：文件头<br>Optional Header：扩展PE头</p>
+<p><strong>FileHeader</strong></p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs elm">typedef struct _IMAGE_FILE_HEADER &#123;<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">Machine</span>;<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">NumberOfSections</span>;<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">TimeDateStamp</span>;<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">PointerToSymbolTable</span>;<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">NumberOfSymbols</span>;<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">SizeOfOptionalHeader</span>;<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">Characteristics</span>;<br>&#125; <span class="hljs-type">IMAGE_FILE_HEADER</span>, *<span class="hljs-type">PIMAGE_FILE_HEADER</span>;<br></code></pre></td></tr></table></figure>
+
+<p>一共有七个字段，分别为：</p>
+<p>Machine：运行的平台，可以运行到不同的CPU上，可以用宏代表，用宏与值对比可知运行平台</p>
+<p>NumberOfSections：区段数量</p>
+<blockquote>
+<p>常用区段：</p>
+<ul>
+<li>.text(.code):代码段</li>
+<li>.data:可读写数据段,用于存放全局变量和静态变量</li>
+<li>.rdata:只读数据区段</li>
+<li>.idata:导入数据区段</li>
+<li>.edata:导出数据区段</li>
+<li>.rsrc:资源段</li>
+<li>.bss:未初始化的数据</li>
+<li>.crt:C++运行库</li>
+<li>.tls .reloc等等</li>
+</ul>
+</blockquote>
+<p>TimeDateStamp：文件的创建时间(采用格林尼治时间)</p>
+<p>PointerToSymbolTable：指向符号表的一个指针,现已不常用</p>
+<p>NumberOfSymbols：符号表中符号的数量</p>
+<p>SizeOfOptionalHeader：文件头后的扩展头的大小</p>
+<p>Characteristics：PE文件的一个属性,可以通过计算得到,一般情况下,普通的EXE文件的值为0x010f,普通dll文件的值为0x0210</p>
+<p><strong>OptionalHeader</strong></p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs elm">typedef struct _IMAGE_OPTIONAL_HEADER &#123;<br>    //<br>    // <span class="hljs-type">Standard</span> fields.<br>    //<br><br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">Magic</span>;     //文件标识，表示可选头的类型<br>    <span class="hljs-type">BYTE</span>    <span class="hljs-type">MajorLinkerVersion</span>;    //链接器的主版本号<br>    <span class="hljs-type">BYTE</span>    <span class="hljs-type">MinorLinkerVersion</span>;    //链接器的子版本号<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfCode</span>;    //结构区段的总大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfInitializedData</span>;    //已初始化数据块的总大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfUninitializedData</span>;    //未初始化数据段的总大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">AddressOfEntryPoint</span>;    //程序入口的一个<span class="hljs-type">RVA</span>(注)<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">BaseOfCode</span>;     //代码段的<span class="hljs-type">RVA</span><br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">BaseOfData</span>;    //数据段的<span class="hljs-type">RVA</span><br><br>    //<br>    // <span class="hljs-type">NT</span> additional fields.<br>    //<br><br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">ImageBase</span>;    //入口点<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SectionAlignment</span>;    //映像文件在装入内存中的区段对其中的大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">FileAlignment</span>;    //映像文件在磁盘中的大小<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">MajorOperatingSystemVersion</span>;    //操作系统最低版本的版本号<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">MinorOperatingSystemVersion</span>;    //操作系统的最低版本的子版本号<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">MajorImageVersion</span>;    //可执行文件的主版本号<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">MinorImageVersion</span>;    //可执行文件的子版本号<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">MajorSubsystemVersion</span>;    //最低子系统的版本号<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">MinorSubsystemVersion</span>;    //最低子系统的子版本号<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">Win32VersionValue</span>;    //保留值  00000000<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfImage</span>;    //映像文件装入内存后的总大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfHeaders</span>;    //<span class="hljs-type">MS</span>-<span class="hljs-type">DOS</span>头,<span class="hljs-type">PE</span>头,驱动表的总大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">CheckSum</span>;    //硬件文件的校验和<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">Subsystem</span>;    //可执行文件所期望的子系统的值<br>    <span class="hljs-type">WORD</span>    <span class="hljs-type">DllCharacteristics</span>;    //<span class="hljs-type">DLLmain</span>函数何时被调用<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfStackReserve</span>;    //exe文件中被线程所保存的堆栈的大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfStackCommit</span>;    //栈的初始化内存大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfHeapReserve</span>;    //进程的默认堆的大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">SizeOfHeapCommit</span>;    //每次指派给堆的内存大小<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">LoaderFlags</span>;    //与调试有关默认为0<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">NumberOfRvaAndSizes</span>;    //与数据有关的成员数量,一般默认为16个<br>    <span class="hljs-type">IMAGE_DATA_DIRECTORY</span> <span class="hljs-type">DataDirectory</span>[<span class="hljs-type">IMAGE_NUMBEROF_DIRECTORY_ENTRIES</span>];<br>&#125; <span class="hljs-type">IMAGE_OPTIONAL_HEADER32</span>, *<span class="hljs-type">PIMAGE_OPTIONAL_HEADER32</span>;<br><br>typedef struct _IMAGE_DATA_DIRECTORY &#123;<br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">VirtualAddress</span>;//<span class="hljs-type">RVA</span><br>    <span class="hljs-type">DWORD</span>   <span class="hljs-type">Size</span>;//大小<br>&#125; <span class="hljs-type">IMAGE_DATA_DIRECTORY</span>, *<span class="hljs-type">PIMAGE_DATA_DIRECTORY</span>;<br></code></pre></td></tr></table></figure>
+
+<p>AddressOfEntryPoint<br>首先了解相关的一些概念:<br>VA: Virtual Address 虚拟地址，范围在00000000到FFFFFFF之间 进程的基地址+相对虚拟内存地址<br>RVA： Reversc Virtual Address 相对虚拟地址<br>FOA： File Offset Address 文件偏移地址，从文件头计算的地址</p>
+<p><strong>区段表结构</strong></p>
+<p>1.区段名称及含义</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">.text</span><br>默认的代码区块,它的内容全是指令代码,链接器把所有目标文件的text块连接成一个大的<span class="hljs-string">.text</span>块，使用Borland C++,编译器产生的代码存放在CODE的区域里<br><span class="hljs-string">.data</span><br>默认的读/写数据块,全局变量,静态变量一般放在这个区段<br><span class="hljs-string">.rdata</span><br>默认只读数据区块,但程序中很少用到该块中的数据，一般两种情况用到,一是MS 的链接器产生EXE文件中用于存放调试目录，二是用于存放说明字符串，如果程序的DEF文件中指定了DESCRIPTION，字符串就会出现在rdata中<br><span class="hljs-string">.idata</span><br>包含其他外来的DLL的函数及数据信息,即输入表，将<span class="hljs-string">.idata</span>区块合并成另一个区块已成为一种惯例，典型的是<span class="hljs-string">.rdata</span>区块,默认的，链接器只在创建一个Release模式的可执行文件时才能将idata合并到另外一个区块中<br><span class="hljs-string">.edata</span><br>输出表，当创建一个输出API或数据的可执行文件时，连接器会创建一个<span class="hljs-string">.EXP</span>文件，这个<span class="hljs-string">.EXP</span>文件包含一个<span class="hljs-string">.edata</span>区块，其会被加载到可执行文件中，经常被合并到<span class="hljs-string">.text</span>或<span class="hljs-string">.rdata</span> 区块中<br><span class="hljs-string">.rsrc</span><br>资源,包括模块的全部资源，如图标，菜单，位图等，这个区块是只读的，无论如何不应该把它命名为<span class="hljs-string">.rsrc</span>以外的名字，也不能合并到其他的区块里<br><span class="hljs-string">.bss</span><br>未初始化的数据,很少在用，取而代之的是执行文件的<span class="hljs-string">.data</span>区块的的VirtualSize被扩展大的空间里用来装未初始化的数据.<br><span class="hljs-string">.crt</span><br>用于C++ 运行时<span class="hljs-params">(CRT)</span>所添加的数据<br><span class="hljs-string">.tls</span><br>TLS的意思是线程局部存储器，用于支持通过_declspec<span class="hljs-params">(thread)</span>声明的线程局部存储变量的数据，这包括数据的初始化值，也包括运行时所需要的额外变量<br><span class="hljs-string">.reloc</span><br>可执行文件的基址重定位，基址重定位一般仅Dll需要的<br><span class="hljs-string">.sdata</span><br>相对于全局指针的可被定位的 短的读写数据<br><span class="hljs-string">.pdata</span><br>异常表,包含CPU特定的IAMGE_RUNTIME_FUNTION_ENTRY结构数组，DataDirectory中的IMAGE_DIRECTORY_ENTRY_EXCEPTION指向它.<br><span class="hljs-string">.didat</span><br>延迟装入输入数据，在非Release模式下可以找到<br></code></pre></td></tr></table></figure>
+
+<p>Name：区段的名称<br>VirtualSize：区段在内存中的大小<br>VirtualOffset：区段在内存中的相对虚拟地址RVA<br>RawSize：区段在文件中的大小<br>RawOffset：区段在文件中的偏移地址<br>Characteristics：特征值（下图中我们可以看到.text特征值600000020）</p>
+<p><strong>数据目录表结构</strong></p>
+<p><strong>导入表</strong></p>
+<p><strong>导出表</strong></p>
+<p>导出表是用来描述模块（dll）中的导出函数的结构，如果一个模块导出了函数，那么这个函数会被记录在导出表中，这样通过GetProcAddress函数就能动态获取到函数的地址</p>
+<p>函数导出的方式有两种：</p>
+<p>1.按名字导出 2.按序号导出</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WINDOWS%E9%80%86%E5%90%91%E5%85%A5%E9%97%A8/" class="category-chain-item">WINDOWS逆向入门</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>PE结构</div>
+      <div>http://example.com/2023/07/27/PE结构/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>luo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月27日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/26/WINDOWS%E9%80%86%E5%90%91%E5%85%A5%E9%97%A8/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备2021015815号-2</a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
